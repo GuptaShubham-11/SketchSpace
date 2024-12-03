@@ -4,7 +4,7 @@ const initialState = {
     tool: 'pen', // Active tool
     color: '#000000', // Current color
     strokeWidth: 2, // Brush size
-    eraserWidth: 2, // Eraser size
+    eraserWidth: 4, // Eraser size
 }
 
 const canvasSlice = createSlice({
