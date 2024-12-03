@@ -1,4 +1,4 @@
-import Button from "./button/Button";
 import CanvasBoard from "./CanvasBoard";
+import Toolbox from "./Toolbox";
 
-export {Button, CanvasBoard};
+export {CanvasBoard, Toolbox};
