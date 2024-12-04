@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 import { useSelector } from "react-redux";
-import { Toolbox } from "./index";
+import { Toolbox, ColorMenu } from "./index";
+import { Slider } from "./ui/slider";
 
 export default function CanvasBoard() {
 
@@ -17,12 +18,22 @@ export default function CanvasBoard() {
                 className="absolute top-0 left-0 w-full h-full"
                 strokeWidth={tool === "pen" ? strokeWidth : eraserWidth}
                 strokeColor={tool === "pen" ? color : "#212121"}
-                style={{border: "none"}}
+                style={{ border: "none" }}
             />
 
             <div className="absolute">
                 <Toolbox />
-            </div>            
+            </div>
+
+            <div className="absolute">
+                <ColorMenu />
+            </div>
+
+            <div className="absolute mt-8 ml-8">
+                <Slider 
+                    className="bg-cyan-300"
+                />
+            </div>
         </div>
     );
 }

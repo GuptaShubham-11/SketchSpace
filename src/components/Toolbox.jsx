@@ -5,7 +5,6 @@ import { FiPenTool, FiCircle, FiSquare, FiArrowRight } from "react-icons/fi";
 import { TfiEraser } from "react-icons/tfi";
 import { LuUndo2, LuRedo2 } from "react-icons/lu";
 import Draggable from "react-draggable";
-import { DraggableCore } from "react-draggable";
 
 const Toolbox = () => {
   const dispatch = useDispatch();
