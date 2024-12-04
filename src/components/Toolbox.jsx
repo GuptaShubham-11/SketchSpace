@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { setTool } from "../features/canvasSlice";
 import { FiPenTool, FiCircle, FiSquare, FiArrowRight } from "react-icons/fi";
 import { TfiEraser } from "react-icons/tfi";
+import { LuUndo2, LuRedo2 } from "react-icons/lu";
 
 const Toolbox = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,8 @@ const Toolbox = () => {
     { id: "arrow", label: "Arrow", icon: <FiArrowRight /> },
     { id: "circle", label: "Circle", icon: <FiCircle /> },
     { id: "square", label: "Square", icon: <FiSquare /> },
+    { id: "undo", label: "Undo", icon: <LuUndo2 /> },
+    { id: "redo", label: "Redo", icon: <LuRedo2 /> },
   ];
 
   const handleToolSelect = (toolId) => {
@@ -20,7 +23,7 @@ const Toolbox = () => {
   };
 
   return (
-    <div className="flex flex-row items-center justify-center space-x-4 p-4 bg-gray-800 text-white shadow-lg rounded-lg">
+    <div className="flex flex-row items-center justify-center space-x-2 p-2 bg-gray-800 text-white shadow-lg rounded-lg">
       {tools.map((tool) => (
         <button
           key={tool.id}
