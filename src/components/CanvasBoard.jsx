@@ -20,7 +20,7 @@ export default function CanvasBoard() {
                 style={{border: "none"}}
             />
 
-            <div className="absolute left-1/3 top-10">
+            <div className="absolute">
                 <Toolbox />
             </div>            
         </div>
