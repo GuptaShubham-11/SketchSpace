@@ -26,10 +26,10 @@ const Toolbox = () => {
   return (
     <Draggable 
       bounds="body"
-      defaultPosition={{x: 425, y: 50}}
+      defaultPosition={{x: 400, y: 25}}
     >
       <div 
-        className="flex flex-row items-center justify-center space-x-2 p-2 bg-gray-800 text-white shadow-lg rounded-lg">
+        className="flex flex-row items-center justify-center space-x-3 p-2 bg-gray-800 text-white shadow-lg rounded-lg">
         {tools.map((tool) => (
           <button
             key={tool.id}

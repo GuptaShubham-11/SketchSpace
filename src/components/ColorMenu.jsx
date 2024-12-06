@@ -14,13 +14,9 @@ const ColorMenu = ({ onChange }) => {
     };
 
     return (
-        <Draggable
-            bounds="body"
-        >
-            <div className="h-20 w-24 rounded">
-                <HexColorPicker color={color} onChange={handleChange} />
-            </div>
-        </Draggable>
+        <div>
+            <HexColorPicker color={color} onChange={handleChange} />
+        </div>
     );
 };
 

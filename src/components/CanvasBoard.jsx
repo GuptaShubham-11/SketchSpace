@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 import { useSelector } from "react-redux";
-import { Toolbox, ColorMenu } from "./index";
-import { Slider } from "./ui/slider";
+import { Toolbox, Menu } from "./index";
+import { Slider } from "@/components/ui/slider"
 
 export default function CanvasBoard() {
 
@@ -25,14 +25,9 @@ export default function CanvasBoard() {
                 <Toolbox />
             </div>
 
-            <div className="absolute">
-                <ColorMenu />
-            </div>
-
-            <div className="absolute mt-8 ml-8">
-                <Slider 
-                    className="bg-cyan-300"
-                />
+            {/* menu baki hai baadme banaunga ok abhi fix -> menu  */}
+            <div className="top-20 absolute">
+                <Menu />
             </div>
         </div>
     );
