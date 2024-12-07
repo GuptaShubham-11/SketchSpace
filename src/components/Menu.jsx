@@ -40,9 +40,8 @@ export default function Menu({ canvasRef }) {
     return (
         <div className="flex flex-col items-center justify-center p-2 bg-gray-800 text-white shadow-lg rounded-lg">
             <Popover>
-                <PopoverTrigger className="flex flex-col items-center p-2 hover:bg-gray-700 rounded">
+                <PopoverTrigger className="flex flex-col items-center p-2 hover:bg-gray-700 rounded" title="Color">
                     <IoIosColorPalette color="white" />
-                    Color
                 </PopoverTrigger>
                 <PopoverContent
                     side="right"
@@ -52,7 +51,7 @@ export default function Menu({ canvasRef }) {
                     <ColorMenu />
                     <div className="mt-6">
                         <span className="block mb-2 text-sm text-gray-300">
-                            Slider Value: {sliderValue}
+                            Stroke Value: {sliderValue}
                         </span>
                         <Slider
                             defaultValue={[sliderValue]}
@@ -72,7 +71,6 @@ export default function Menu({ canvasRef }) {
                 title="Undo"
             >
                 <LuUndo2 />
-                <span className="text-xs mt-1">Undo</span>
             </button>
 
             {/* Redo Button */}
@@ -82,7 +80,6 @@ export default function Menu({ canvasRef }) {
                 title="Redo"
             >
                 <LuRedo2 />
-                <span className="text-xs mt-1">Redo</span>
             </button>
         </div>
     );

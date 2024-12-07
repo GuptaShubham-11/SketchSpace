@@ -35,7 +35,6 @@ const Toolbox = () => {
             title={tool.label}
           >
             {tool.icon}
-            <span className="text-xs mt-1">{tool.label}</span>
           </button>
         ))}
       </div>
