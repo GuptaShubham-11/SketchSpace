@@ -6,20 +6,39 @@ import {
 } from "@/components/ui/popover";
 import { IoIosColorPalette } from "react-icons/io";
 import { ColorMenu } from "./index";
-import { Slider } from "@/components/ui/slider"
+import { Slider } from "@/components/ui/slider";
+import { LuUndo2, LuRedo2 } from "react-icons/lu";
+import { useDispatch } from "react-redux";
+import { setStrokeWidth } from "../features/canvasSlice";
 
 
-export default function Menu() {
+export default function Menu({ canvasRef }) {
 
-    const [sliderValue, setSliderValue] = useState(33);
+    const [sliderValue, setSliderValue] = useState(7);
+    const dispatch = useDispatch();
 
     const handleSliderChange = (value) => {
-        // Handle single value or array
-        setSliderValue(Array.isArray(value) ? value[0] : value);
+        const sliderValue = Array.isArray(value) ? value[0] : value;
+
+        // Update local state and Redux store
+        setSliderValue(sliderValue);
+        dispatch(setStrokeWidth(sliderValue));
     };
 
+    const handleUndo = () => {
+        if (canvasRef?.current) {
+            canvasRef.current.undo();
+        }
+    }
+
+    const handleRedo = () => {
+        if (canvasRef?.current) {
+            canvasRef.current.redo();
+        }
+    }
+
     return (
-        <div className="flex flex-col items-center justify-center space-x-4 p-2 bg-gray-800 text-white shadow-lg rounded-lg">
+        <div className="flex flex-col items-center justify-center p-2 bg-gray-800 text-white shadow-lg rounded-lg">
             <Popover>
                 <PopoverTrigger className="flex flex-col items-center p-2 hover:bg-gray-700 rounded">
                     <IoIosColorPalette color="white" />
@@ -36,8 +55,8 @@ export default function Menu() {
                             Slider Value: {sliderValue}
                         </span>
                         <Slider
-                            defaultValue={[33]}
-                            max={100}
+                            defaultValue={[sliderValue]}
+                            max={20}
                             step={1}
                             className="bg-gray-400 rounded w-full"
                             onValueChange={handleSliderChange} // Slider's value is an array
@@ -46,6 +65,25 @@ export default function Menu() {
                 </PopoverContent>
             </Popover>
 
+            {/* Undo Button */}
+            <button
+                onClick={handleUndo}
+                className="flex flex-col items-center p-2 hover:bg-gray-700 rounded"
+                title="Undo"
+            >
+                <LuUndo2 />
+                <span className="text-xs mt-1">Undo</span>
+            </button>
+
+            {/* Redo Button */}
+            <button
+                onClick={handleRedo}
+                className="flex flex-col items-center p-2 hover:bg-gray-700 rounded"
+                title="Redo"
+            >
+                <LuRedo2 />
+                <span className="text-xs mt-1">Redo</span>
+            </button>
         </div>
     );
 

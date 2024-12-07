@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { setTool } from "../features/canvasSlice";
 import { FiPenTool, FiCircle, FiSquare, FiArrowRight } from "react-icons/fi";
 import { TfiEraser } from "react-icons/tfi";
-import { LuUndo2, LuRedo2 } from "react-icons/lu";
 import Draggable from "react-draggable";
 
 const Toolbox = () => {
@@ -15,8 +14,6 @@ const Toolbox = () => {
     { id: "arrow", label: "Arrow", icon: <FiArrowRight /> },
     { id: "circle", label: "Circle", icon: <FiCircle /> },
     { id: "square", label: "Square", icon: <FiSquare /> },
-    { id: "undo", label: "Undo", icon: <LuUndo2 /> },
-    { id: "redo", label: "Redo", icon: <LuRedo2 /> },
   ];
 
   const handleToolSelect = (toolId) => {
@@ -26,7 +23,7 @@ const Toolbox = () => {
   return (
     <Draggable 
       bounds="body"
-      defaultPosition={{x: 400, y: 25}}
+      defaultPosition={{x: 450, y: 25}}
     >
       <div 
         className="flex flex-row items-center justify-center space-x-3 p-2 bg-gray-800 text-white shadow-lg rounded-lg">

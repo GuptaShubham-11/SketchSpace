@@ -27,7 +27,7 @@ export default function CanvasBoard() {
 
             {/* menu baki hai baadme banaunga ok abhi fix -> menu  */}
             <div className="top-20 absolute">
-                <Menu />
+                <Menu  canvasRef={canvasRef}/>
             </div>
         </div>
     );
